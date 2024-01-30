@@ -26,6 +26,12 @@ public class TransactionController {
         return ResponseEntity.ok(response);
     }
 
+    @PostMapping("/calculate")
+    public ResponseEntity<Object> calculateTax(@RequestBody Transaction transaction) throws Exception{
+        Transaction response = _transactionService.calculateTax(transaction);
+        return ResponseEntity.ok(response);
+    }
+
     @RequestMapping("/transaction/{id}")
     public ResponseEntity<Object> getTransactionById(@PathVariable("id") long id){
         Transaction response = _transactionService.getTransactionById(id);

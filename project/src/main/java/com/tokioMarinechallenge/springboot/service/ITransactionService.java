@@ -15,4 +15,6 @@ public interface ITransactionService {
     public Transaction getTransactionById(long id) throws Exception;
 
     public List<Transaction> getTransactions() throws Exception;
+
+    public Transaction calculateTax(Transaction transaction) throws Exception;
 }

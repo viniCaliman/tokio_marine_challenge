@@ -14,4 +14,9 @@ public class CustomExceptionHandler {
     public ResponseEntity<String> handleNoSuchElementException(NoSuchElementException ex){
         return ResponseEntity.status(HttpStatus.NOT_FOUND).body("");
     }
+
+    @ExceptionHandler(TransactionException.class)
+    public ResponseEntity<String> handletransactionException(TransactionException ex){
+        return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body("Não há taxa aplicável, não será possivel fazer a transferência");
+    }
 }

@@ -1,4 +1,4 @@
-package com.tokioMarinechallenge.springboot.service;
+package com.tokioMarinechallenge.springboot.service.transaction;
 
 import java.math.BigDecimal;
 import java.math.RoundingMode;
@@ -18,7 +18,7 @@ import lombok.var;
 
 @Service
 public class TransactionService implements ITransactionService{
-
+    
     @Autowired
     private TransactionRepository _transactionRepository;
 

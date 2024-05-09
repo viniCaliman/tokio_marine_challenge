@@ -7,5 +7,5 @@ import com.tokioMarinechallenge.springboot.model.Transaction;
 
 @Repository
 public interface TransactionRepository extends JpaRepository<Transaction, Long> {
-    
+
 }

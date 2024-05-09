@@ -14,8 +14,6 @@ import com.tokioMarinechallenge.springboot.model.Transaction;
 import com.tokioMarinechallenge.springboot.model.Exceptions.TransactionException;
 import com.tokioMarinechallenge.springboot.repository.TransactionRepository;
 
-import lombok.var;
-
 @Service
 public class TransactionService implements ITransactionService{
     

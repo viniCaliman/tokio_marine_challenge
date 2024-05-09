@@ -1,0 +1,1 @@
+INSERT INTO tb_users VALUES (1, 'admin', 'admin', 'email@teste.com')

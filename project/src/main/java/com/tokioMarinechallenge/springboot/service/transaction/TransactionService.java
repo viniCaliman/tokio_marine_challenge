@@ -81,9 +81,9 @@ public class TransactionService implements ITransactionService{
     public Transaction calculateTax(Transaction transaction) throws Exception{
         try{
             transaction.setAppointmentDate(LocalDateTime.now().withHour(0).withMinute(0).withSecond(0));
-            var days = (int) ChronoUnit.DAYS.between(transaction.getAppointmentDate(), transaction.getTranferDate());
+            int days = (int) ChronoUnit.DAYS.between(transaction.getAppointmentDate(), transaction.getTranferDate());
 
-            var tax = getTax(days, transaction.getTranferValue());
+            double tax = getTax(days, transaction.getTranferValue());
 
             if(tax == 0.00)
                 throw new TransactionException();

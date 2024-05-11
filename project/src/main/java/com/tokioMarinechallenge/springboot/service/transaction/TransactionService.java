@@ -14,8 +14,6 @@ import com.tokioMarinechallenge.springboot.model.Transaction;
 import com.tokioMarinechallenge.springboot.model.Exceptions.TransactionException;
 import com.tokioMarinechallenge.springboot.repository.TransactionRepository;
 
-import lombok.var;
-
 @Service
 public class TransactionService implements ITransactionService{
     
@@ -31,7 +29,8 @@ public class TransactionService implements ITransactionService{
             if(savedData == null)
                 throw new Exception("Erro ao agendar transação");
             
-            return "Transação agendada com sucesso";
+            String message = "Transação agendada com sucesso";
+            return message;
 
         }catch(Exception ex){
 
@@ -66,8 +65,7 @@ public class TransactionService implements ITransactionService{
         try{
 
             List<Transaction> list = (List<Transaction>)_transactionRepository.findAll();
-            if(list.isEmpty())
-                throw new NoSuchElementException();
+
 
             return list;
 
@@ -78,22 +76,21 @@ public class TransactionService implements ITransactionService{
         }
     }
 
-    public Transaction calculateTax(Transaction transaction) throws Exception{
+    public double calculateTax(LocalDateTime date, double value) throws Exception{
         try{
-            transaction.setAppointmentDate(LocalDateTime.now().withHour(0).withMinute(0).withSecond(0));
-            var days = (int) ChronoUnit.DAYS.between(transaction.getAppointmentDate(), transaction.getTranferDate());
+            LocalDateTime today = LocalDateTime.now().withHour(0).withMinute(0).withSecond(0);
+            int days = (int) ChronoUnit.DAYS.between(today, date);
 
-            var tax = getTax(days, transaction.getTranferValue());
+            double tax = getTax(days, value);
 
             if(tax == 0.00)
                 throw new TransactionException();
 
-            transaction.setTax(tax);
-
+        
+            return tax;
         }catch(Exception ex){
             throw ex;
         }
-        return transaction;
         
     }
 

@@ -1,0 +1,22 @@
+{
+    "configurations": [
+        {
+            "type": "java",
+            "name": "SpringbootBackendApplication",
+            "request": "launch",
+            "mainClass": "com.tokioMarinechallenge.springboot.service.SpringbootBackendApplication",
+            "projectName": "springboot-backend"
+        },
+        {
+            "type": "java",
+            "name": "Spring Boot-SpringbootBackendApplication<springboot-backend>",
+            "request": "launch",
+            "cwd": "${workspaceFolder}",
+            "mainClass": "com.tokioMarinechallenge.springboot.SpringbootBackendApplication",
+            "projectName": "springboot-backend",
+            "args": "",
+            "envFile": "${workspaceFolder}/.env",
+            "vmArgs": " -Dcom.sun.management.jmxremote -Dcom.sun.management.jmxremote.port=62284 -Dcom.sun.management.jmxremote.authenticate=false -Dcom.sun.management.jmxremote.ssl=false -Dspring.jmx.enabled=true -Djava.rmi.server.hostname=localhost -Dspring.application.admin.enabled=true -Dspring.boot.project.name=springboot-backend"
+        }
+    ]
+}
